@@ -1,10 +1,62 @@
 @use './../base/global';
 @use './../base/utils';
 
-#cluster{
-  @include utils.absolute-center;
+#on-load-overlay{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  
+  $gap: 4px; //Only use EVEN #px else animation will be misaligned
+  $dimension: 200px;
+  $border-radius: 10px;
+  
+  #cluster{
+    @include utils.absolute-center;
+    width: $dimension;
+    height: $dimension;
+    border: $gap solid global.$dark;
+    display: grid;  
+    grid-template-areas: 
+      "a b"
+      "c b";
+    gap: $gap;
+    padding: $gap;
 
-  width: 200px;
-  height: 200px;
-  background-color: global.$accent-main;
+    .child{
+      background-color: global.$dark;
+    }
+    
+    .square[pos="upper"]{
+      grid-area: a;
+    }
+
+    .rect{
+      grid-area: b;
+    }
+
+    .square[pos="lower"]{
+      grid-area: c;
+    }
+  }
+
+  .scaling{
+    $halved: calc(($dimension - ($gap*5))/2);
+
+    background-color: global.$dark;
+    height: $halved;
+    width: $halved;
+    position: absolute;
+    left: 50%;
+    top: $gap;
+    padding-top: $gap;
+    margin-left: calc($gap/2);
+    transform-origin: 0 0;
+    transition: all 1s ease-in;
+    opacity: 1;
+  }
+
+  .scaling:hover{
+    transform: scaleY(1.95);
+    opacity: 0;
+  }
 }
