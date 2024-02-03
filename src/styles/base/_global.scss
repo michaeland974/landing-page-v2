@@ -1,0 +1,29 @@
+@font-face {  font-family: Bold-Text;
+  src: url('./../fonts/IBMPlexMono-Bold.ttf'); }
+@font-face {  font-family: Thin-Text;
+  src: url('./../fonts/IBMPlexMono-Thin.ttf'); }
+@font-face {  font-family: ThinItalic-Text;
+  src: url('./../fonts/IBMPlexMono-ThinItalic.ttf'); }
+@font-face {  font-family: Regular-Text;
+  src: url('./../fonts/IBMPlexMono-Regular.ttf'); 
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {  font-family: Serif-Text;
+  src: url('./../fonts/Trocchi-Regular.ttf');
+  font-style: normal;
+  font-weight: 400;
+}
+
+$fs-xl: clamp(1.75rem, 4vw, 2rem);
+$fs-600: clamp(1.5rem, 3vw, 1.75rem);
+$fs-500: clamp(1rem, 2.5vw, 1.5rem);
+$fs-400: clamp(1rem, 1.4vw, 1.5rem);
+
+$display-padding: 1rem;
+
+$background: #EDECEB;
+$dark: #012622;
+$highlight: #E98A15;
+$accent-main: #496898;
+$accent-sec: #568259;

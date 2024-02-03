@@ -1,0 +1,10 @@
+@use './../base/global';
+@use './../base/utils';
+
+#cluster{
+  @include utils.absolute-center;
+
+  width: 200px;
+  height: 200px;
+  background-color: global.$accent-main;
+}

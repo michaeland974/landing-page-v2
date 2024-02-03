@@ -1,0 +1,9 @@
+@use './global';
+
+body{
+  height: 100svh;
+  background-color: global.$background;
+  font-family: Regular-Text;
+  font-size: global.$fs-400;  
+  position: relative;
+}
