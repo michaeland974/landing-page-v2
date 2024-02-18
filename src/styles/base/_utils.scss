@@ -3,9 +3,11 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
 }
 
 @mixin border-radius-one-side($left, $right, $px){
   border-#{$left}-radius: $px;
   border-#{$right}-radius: $px;
 }
+

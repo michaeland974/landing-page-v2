@@ -1,20 +1,51 @@
 @use './../base/global';
 @use './../base/utils';
 
+@keyframes Rotate-And-Slide{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(-90deg);
+  }
+}
+
+@keyframes Slide-Across{
+  0%{
+    transform: translateX(0px);
+  }
+  100%{
+    transform: translateX(45vw);
+  }
+}
+
+body{
+  overflow: hidden; //Necessary for on-load
+}
+
 #on-load-overlay{
-  position: relative;
   height: 100%;
   width: 100%;
-  
+  isolation: isolate;
+  display: grid;
+  place-items: center;
   $gap: 4px; //Only use EVEN #px else animation will be misaligned
-  $dimension: 200px;
+  $dimension: 150px;
   $border-radius: 10px;
+  $tilt: 1px;
+  $timing: 1s;
+  animation: Rotate-And-Slide 1s 0.4s;
+
+  *{
+    grid-area: 1/1;
+  }
   
   #cluster{
-    @include utils.absolute-center;
     width: $dimension;
     height: $dimension;
     border: $gap solid global.$dark;
+    outline: calc($gap * 2) solid global.$background; //Colors the margin space
+    background-color: global.$background;
     display: grid;  
     grid-template-areas: 
       "a b"
@@ -39,24 +70,27 @@
     }
   }
 
-  .scaling{
-    $halved: calc(($dimension - ($gap*5))/2);
-
+  #half-background{
+    z-index: -1;
+    height: 50%;
+    width: 100%;
     background-color: global.$dark;
-    height: $halved;
-    width: $halved;
-    position: absolute;
-    left: 50%;
-    top: $gap;
-    padding-top: $gap;
-    margin-left: calc($gap/2);
-    transform-origin: 0 0;
-    transition: all 1s ease-in;
-    opacity: 1;
-  }
+    transform: translateY(50%);
+    position: relative;
 
-  .scaling:hover{
-    transform: scaleY(1.95);
-    opacity: 0;
+    .line{
+      $length: 10%;
+      $height: 2px;
+      $blur-color: rgba(global.$highlight, 0.6);
+
+      background-color: global.$highlight;
+      border-radius: 10px;
+      position: absolute;
+      width: $length;
+      height: $height;
+      top: calc($height / -2);
+      // box-shadow: $blur-color -25px 0 60px 25px;
+      animation: Slide-Across $timing;
+    }
   }
 }
