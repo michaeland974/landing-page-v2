@@ -1,12 +1,41 @@
 @use './../base/global';
 @use './../base/utils';
+@use "sass:map";
 
-@keyframes Rotate-And-Slide{
+$gap: 4px; //Only use EVEN #px else animation will be misaligned
+$dimension: 75px;
+$kf-timing: 0.6s;
+$translate-value: calc(($dimension / 4) + $gap);
+$translate-value-negative: calc($translate-value * -1);
+$left-shift: calc($dimension * 1.5 * -1);
+$right-shift: calc($dimension * 1.5);
+$delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
+
+@keyframes Middle-To-Down{
   0%{
-    transform: rotate(0deg);
+    transform: translateY(0px);
   }
   100%{
-    transform: rotate(-90deg);
+    transform: translateY($translate-value);
+  }
+}
+
+@keyframes MiddleLeft-To-Up{
+  0%{
+    transform: translate($left-shift, 0px)
+  }
+  100%{
+    transform: translate($left-shift, $translate-value-negative)
+  }
+}
+
+
+@keyframes MiddleRight-To-Up{
+  0%{
+    transform: translate($right-shift, 0px)
+  }
+  100%{
+    transform: translate($right-shift, $translate-value-negative)
   }
 }
 
@@ -19,28 +48,25 @@
   }
 }
 
-body{
-  overflow: hidden; //Necessary for on-load
-}
-
+// @for $i from 1 through 3{
+//   #on-load-overlay:nth-child(#{$i}) {
+//     -webkit-animation-delay:(#{$i*1s}); 
+//     animation-delay:(#{$i*1s}); 
+//   }
+// }
 #on-load-overlay{
   height: 100%;
   width: 100%;
   isolation: isolate;
   display: grid;
   place-items: center;
-  $gap: 4px; //Only use EVEN #px else animation will be misaligned
-  $dimension: 150px;
-  $border-radius: 10px;
-  $tilt: 1px;
-  $timing: 1s;
-  animation: Rotate-And-Slide 1s 0.4s;
+  background-color: global.$background;
 
   *{
     grid-area: 1/1;
   }
   
-  #cluster{
+  .cluster{
     width: $dimension;
     height: $dimension;
     border: $gap solid global.$dark;
@@ -52,6 +78,11 @@ body{
       "c b";
     gap: $gap;
     padding: $gap;
+    animation: Middle-To-Down 
+      $kf-timing
+      map.get($delays, "second")
+      ease 
+      forwards;
 
     .child{
       background-color: global.$dark;
@@ -70,27 +101,40 @@ body{
     }
   }
 
+  .cluster[color-swapped]{
+    border: $gap solid global.$background;
+    outline: calc($gap * 2) solid global.$dark; //Colors the margin space
+    background-color: global.$dark;
+
+    .child{
+      background-color: global.$background;
+    }    
+  }
+
+  .cluster[color-swapped][pos="left"]{
+    transform: translateX($left-shift);
+    animation: MiddleLeft-To-Up 
+      $kf-timing 
+      map.get($delays, "first")
+      forwards
+      ease;
+  }
+
+  .cluster[color-swapped][pos="right"]{
+    transform: translateX($right-shift);
+    animation: MiddleRight-To-Up 
+      $kf-timing 
+      map.get($delays, "third")
+      forwards
+      ease;
+  }
+  
+
   #half-background{
     z-index: -1;
     height: 50%;
     width: 100%;
+    transform: translateY(50%);  
     background-color: global.$dark;
-    transform: translateY(50%);
-    position: relative;
-
-    .line{
-      $length: 10%;
-      $height: 2px;
-      $blur-color: rgba(global.$highlight, 0.6);
-
-      background-color: global.$highlight;
-      border-radius: 10px;
-      position: absolute;
-      width: $length;
-      height: $height;
-      top: calc($height / -2);
-      // box-shadow: $blur-color -25px 0 60px 25px;
-      animation: Slide-Across $timing;
-    }
   }
 }
