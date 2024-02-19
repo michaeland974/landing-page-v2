@@ -27,14 +27,18 @@ $fs-400: clamp(1rem, 1.4vw, 1.5rem);
 
 $display-padding: 1rem;
 
-$background: #FDF0D5;
-$dark: #331832;
-$highlight: #D81E58;
-$accent-main: #F0544F;
-$accent-sec: #C6D8D3;
+$background: #F2EBDC;
+$dark: #26221C;
+$accent-3: #2AF5FF;
+$accent-2: #FF934F;
+$accent-main: #4B89BF;
+$highlight: #E23467;
+$accent-1: #C2E812;
 
 $kf-timing: 0.6s;
 $kf-slide-timing: 0.8s;
+$kf-slide-value: 100svh;
+$kf-slide-value-negative: calc($kf-slide-value * -1);
 $delays: (
   "first": 0.4s, 
   "second": 0.7s, 

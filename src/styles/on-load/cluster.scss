@@ -38,10 +38,10 @@ $right-shift: calc($dimension * 1.5);
 
 @keyframes Slide-Off{
   0%{
-    transform: translateX(0px);
+    transform: translateY(0px);
   }
   100%{
-    transform: translateX(100vw);
+    transform: translateY(global.$kf-slide-value-negative);
   }
 }
 

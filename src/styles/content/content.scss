@@ -3,10 +3,10 @@
 
 @keyframes Slide-In{
   0%{
-    transform: translateX(-100vw);
+    transform: translateY(global.$kf-slide-value);
   }
   100%{
-    transform: translateX(0);
+    transform: translateY(0);
     overflow-y: scroll;
   }
 }
@@ -14,27 +14,30 @@
 main{
   transform: translateX(-100vw);
   font-family: Serif-Text;
-  height: 300vh;
+  height: 300svh;
   width: 100%;
-  background-color: global.$background;
   animation: Slide-In 
     global.$kf-slide-timing
     map.get(global.$delays, "last")
     cubic-bezier(.45,.33,.31,1.13)
     forwards;
-  // display: grid;
+  display:flex;
+  flex-direction: column;
 
   header{
+    $padding: 0.5em;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center; 
-    padding: global.$display-padding;
+    padding: $padding;
+    background-color: global.$dark;
+    color: global.$background;
 
     nav{
       ul{
         display: flex;
-        gap: global.$display-padding;
+        gap: $padding;
       }
     }
   }
@@ -42,8 +45,7 @@ main{
   h1{
     font-family: Bungee;
     -webkit-text-stroke-width: 1px;
-    font-size: global.$fs-xl;
-    color: global.$dark;
+    font-size: global.$fs-500;
     text-shadow: -1px 1px 1px rgba(global.$highlight, 0.1);
   }
 }
