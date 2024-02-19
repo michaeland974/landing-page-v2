@@ -9,10 +9,15 @@
   font-style: normal;
   font-weight: 400;
 }
-@font-face {  font-family: Serif-Text;
+@font-face {  
+  font-family: Serif-Text;
   src: url('./../fonts/Trocchi-Regular.ttf');
   font-style: normal;
   font-weight: 400;
+}
+@font-face {  
+  font-family: Bungee;
+  src: url('./../fonts/BungeeShade-Regular.ttf');
 }
 
 $fs-xl: clamp(1.75rem, 4vw, 2rem);
@@ -27,3 +32,12 @@ $dark: #331832;
 $highlight: #D81E58;
 $accent-main: #F0544F;
 $accent-sec: #C6D8D3;
+
+$kf-timing: 0.6s;
+$kf-slide-timing: 0.8s;
+$delays: (
+  "first": 0.4s, 
+  "second": 0.7s, 
+  "third": 1s,
+  "last": 1.2s
+);

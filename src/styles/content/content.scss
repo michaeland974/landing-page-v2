@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use './../base/global';
+
+@keyframes Slide-In{
+  0%{
+    transform: translateX(-100vw);
+  }
+  100%{
+    transform: translateX(0);
+    overflow-y: scroll;
+  }
+}
+
+main{
+  transform: translateX(-100vw);
+  font-family: Serif-Text;
+  height: 300vh;
+  width: 100%;
+  background-color: global.$background;
+  animation: Slide-In 
+    global.$kf-slide-timing
+    map.get(global.$delays, "last")
+    cubic-bezier(.45,.33,.31,1.13)
+    forwards;
+  // display: grid;
+
+  header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: global.$display-padding;
+
+    nav{
+      ul{
+        display: flex;
+        gap: global.$display-padding;
+      }
+    }
+  }
+
+  h1{
+    font-family: Bungee;
+    -webkit-text-stroke-width: 1px;
+    font-size: global.$fs-xl;
+    color: global.$dark;
+    text-shadow: -1px 1px 1px rgba(global.$highlight, 0.1);
+  }
+}

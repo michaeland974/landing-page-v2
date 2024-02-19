@@ -1,15 +1,13 @@
 @use './../base/global';
 @use './../base/utils';
-@use "sass:map";
+@use 'sass:map';
 
 $gap: 4px; //Only use EVEN #px else animation will be misaligned
 $dimension: 75px;
-$kf-timing: 0.6s;
 $translate-value: calc(($dimension / 4) + $gap);
 $translate-value-negative: calc($translate-value * -1);
 $left-shift: calc($dimension * 1.5 * -1);
 $right-shift: calc($dimension * 1.5);
-$delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
 
 @keyframes Middle-To-Down{
   0%{
@@ -29,7 +27,6 @@ $delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
   }
 }
 
-
 @keyframes MiddleRight-To-Up{
   0%{
     transform: translate($right-shift, 0px)
@@ -39,21 +36,20 @@ $delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
   }
 }
 
-@keyframes Slide-Across{
+@keyframes Slide-Off{
   0%{
     transform: translateX(0px);
   }
   100%{
-    transform: translateX(45vw);
+    transform: translateX(100vw);
   }
 }
 
-// @for $i from 1 through 3{
-//   #on-load-overlay:nth-child(#{$i}) {
-//     -webkit-animation-delay:(#{$i*1s}); 
-//     animation-delay:(#{$i*1s}); 
-//   }
-// }
+body, 
+#on-load-overlay{
+  overflow: hidden;
+}
+
 #on-load-overlay{
   height: 100%;
   width: 100%;
@@ -61,6 +57,11 @@ $delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
   display: grid;
   place-items: center;
   background-color: global.$background;
+  animation: Slide-Off 
+    global.$kf-slide-timing
+    map.get(global.$delays, "last")
+    cubic-bezier(.45,.33,.31,1.13)
+    forwards;
 
   *{
     grid-area: 1/1;
@@ -79,8 +80,8 @@ $delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
     gap: $gap;
     padding: $gap;
     animation: Middle-To-Down 
-      $kf-timing
-      map.get($delays, "second")
+      global.$kf-timing
+      map.get(global.$delays, "second")
       ease 
       forwards;
 
@@ -114,8 +115,8 @@ $delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
   .cluster[color-swapped][pos="left"]{
     transform: translateX($left-shift);
     animation: MiddleLeft-To-Up 
-      $kf-timing 
-      map.get($delays, "first")
+      global.$kf-timing 
+      map.get(global.$delays, "first")
       forwards
       ease;
   }
@@ -123,13 +124,12 @@ $delays: ("first": 0.4s, "second": 0.7s, "third": 1s);
   .cluster[color-swapped][pos="right"]{
     transform: translateX($right-shift);
     animation: MiddleRight-To-Up 
-      $kf-timing 
-      map.get($delays, "third")
+      global.$kf-timing 
+      map.get(global.$delays, "third")
       forwards
       ease;
   }
   
-
   #half-background{
     z-index: -1;
     height: 50%;
