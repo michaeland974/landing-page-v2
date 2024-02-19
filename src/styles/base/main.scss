@@ -1,4 +1,14 @@
 @use './global';
+@use 'sass:map';
+
+@keyframes Delay-Scroll{
+  0%{
+    overflow-y: hidden;
+  }
+  100%{
+    overflow-y: scroll;
+  }
+}
 
 body{
   height: 100svh;
@@ -6,7 +16,10 @@ body{
   font-family: Regular-Text;
   font-size: global.$fs-400;
   position: relative;
-  overflow-x: hidden;
+  animation-name: Delay-Scroll;
+  animation-delay: map.get(global.$delays, "last"); 
+  overflow: hidden;
+  animation-fill-mode: forwards; 
 
   & > *{
     position: absolute;

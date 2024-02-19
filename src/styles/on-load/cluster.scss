@@ -45,14 +45,10 @@ $right-shift: calc($dimension * 1.5);
   }
 }
 
-body, 
-#on-load-overlay{
-  overflow: hidden;
-}
-
 #on-load-overlay{
   height: 100%;
   width: 100%;
+  overflow: hidden;
   isolation: isolate;
   display: grid;
   place-items: center;

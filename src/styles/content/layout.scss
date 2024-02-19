@@ -7,15 +7,17 @@
   }
   100%{
     transform: translateY(0);
-    overflow-y: scroll;
   }
 }
 
+$padding: 0.5em;
+$child-size: 100svh;
+
 main{
-  transform: translateX(-100vw);
+  $margin: 0.25em;
   font-family: Serif-Text;
-  height: 300svh;
   width: 100%;
+  color: global.$dark;
   animation: Slide-In 
     global.$kf-slide-timing
     map.get(global.$delays, "last")
@@ -24,28 +26,25 @@ main{
   display:flex;
   flex-direction: column;
 
+  & > .content-block{
+    height: $child-size;
+    display: grid;
+    grid-template: global.$grid-count / global.$grid-count;
+  }
+
   header{
-    $padding: 0.5em;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-    padding: $padding;
-    background-color: global.$dark;
-    color: global.$background;
-
-    nav{
-      ul{
-        display: flex;
-        gap: $padding;
-      }
-    }
+    align-items: center;
+    border-top: 0.5em solid global.$dark;
+    padding: $margin $padding $padding $padding;
   }
 
-  h1{
+  h2{
     font-family: Bungee;
     -webkit-text-stroke-width: 1px;
-    font-size: global.$fs-500;
-    text-shadow: -1px 1px 1px rgba(global.$highlight, 0.1);
+    font-size: global.$fs-600;
+    color: global.$dark;
   }
 }
