@@ -21,7 +21,9 @@
 
       <section class="content-block" id="about-me">
         <div id="author">Michael Anderson</div>
-        <div id="cover">
+        <div id="cover" 
+             will-transition="true"
+             fade-status="false">
           <h1>About me</h1>
           <svg class="icon" viewBox="0 0 220 220"
                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" xml:space="preserve">
@@ -46,10 +48,22 @@
             </g>
           </svg>
         </div>
-        <div class="block" pos="left"></div>
-        <div class="block" pos="right"></div>
-        <div class="block" pos="foot-side"></div>
-        <div class="block" pos="foot-main"></div>
+        <div class="block" 
+             pos="left" 
+             will-transition="true" 
+             fade-status="false"></div>
+        <p class="block" 
+           pos="right" 
+           id="bio"
+           will-transition="true"
+           translate-status="false">
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+             Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis.
+        </p>
+        <div class="block" 
+             pos="foot-side" 
+             will-transition="true"
+             fade-status="false"></div>
       </section>
 
       <section class="content-block" id="projects">

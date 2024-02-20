@@ -45,6 +45,7 @@ $kf-timing: 0.6s;
 $kf-slide-timing: 0.8s;
 $kf-slide-value: 100svh;
 $kf-slide-value-negative: calc($kf-slide-value * -1);
+$kf-cubic: cubic-bezier(.45,.33,.31,1.13);
 $delays: (
   "first": 0.4s, 
   "second": 0.7s, 

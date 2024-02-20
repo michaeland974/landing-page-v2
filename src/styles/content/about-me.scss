@@ -57,17 +57,30 @@
     z-index: -1;
   }
 
-  .block[pos="right"]{
-    grid-area: block-right;
+  .block[pos="foot-side"]{
+      grid-area: foot-side;
+      background-color: global.$dark;
+      height: 15%;
+      transform: translateY(200%);
+    }
+
+  .block[pos="right"]#bio{
+    height: 75%;
+    grid-area: main;
     background-color: global.$dark;
-    height: 50%;
-    transform: translate(25%, 50%);
+    color: global.$background;
+    transform: translate(125%, 25%);
+
+    &[translate-status="true"]{
+      transform: translate(0, 25%);
+    }
   }
 
-  .block[pos="foot-side"]{
-    grid-area: foot-side;
-    background-color: global.$dark;
-    height: 15%;
-    transform: translateY(200%);
+  *[will-transition="true"]{
+    transition: all 0.5s global.$kf-cubic;
+
+    &[fade-status="true"]{
+      opacity: 0.15;
+    }
   }
 }
