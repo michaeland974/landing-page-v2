@@ -1,5 +1,21 @@
 @use './../base/global';
 @use './../base/utils';
+@use 'sass:map';
+
+@keyframes Opacity-Fade-Out{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0.15; 
+  }
+}
+
+@keyframes Slide-In-From-Right{
+  100%{
+    transform: translate(0%, 25%);
+  }
+}
 
 #about-me{
   font-family: Podkova;
@@ -70,17 +86,16 @@
     background-color: global.$dark;
     color: global.$background;
     transform: translate(125%, 25%);
-
-    &[translate-status="true"]{
-      transform: translate(0, 25%);
-    }
+    animation: Slide-In-From-Right 0.5s global.$kf-cubic forwards;
+    animation-delay: map.get(global.$delays, "about-me-section");
   }
 
   *[will-transition="true"]{
-    transition: all 0.5s global.$kf-cubic;
 
-    &[fade-status="true"]{
-      opacity: 0.15;
+    &[transition-type="opacity"]{
+      animation: Opacity-Fade-Out 0.5s global.$kf-cubic forwards;
+      animation-delay: map.get(global.$delays, "about-me-section");
     }
+    
   }
 }
