@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use './../base/global';
+@use './../base/utils';
 
 @keyframes Slide-In{
   0%{
@@ -10,7 +11,6 @@
   }
 }
 
-$padding: 0.5em;
 $child-size: 100svh;
 
 main{
@@ -18,18 +18,18 @@ main{
   font-family: Serif-Text;
   width: 100%;
   color: global.$dark;
-  animation: Slide-In 
-    global.$kf-slide-timing
-    map.get(global.$delays, "last")
-    cubic-bezier(.45,.33,.31,1.13)
-    forwards;
+  // animation: Slide-In 
+  //   global.$kf-slide-timing
+  //   map.get(global.$delays, "last")
+  //   cubic-bezier(.45,.33,.31,1.13)
+  //   forwards;
   display:flex;
   flex-direction: column;
 
   & > .content-block{
     height: $child-size;
     display: grid;
-    grid-template: global.$grid-count / global.$grid-count;
+    @include utils.grid-count-mobile;
   }
 
   header{
@@ -38,7 +38,7 @@ main{
     justify-content: space-between;
     align-items: center;
     border-top: 0.5em solid global.$dark;
-    padding: $margin $padding $padding $padding;
+    padding: $margin global.$display-padding global.$display-padding global.$display-padding;
   }
 
   h2{

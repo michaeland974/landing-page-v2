@@ -1,0 +1,58 @@
+@use './../base/global';
+@use './../base/utils';
+
+#about-me{
+  font-family: Podkova;
+
+  #author{
+    grid-area: head;
+    transform: translateY(75%);
+    background-color: global.$dark;
+    color: global.$background;
+    @include utils.flex-center;
+    @include utils.box-shadow(global.$dark, $opposite: true);
+  }
+
+  #cover{
+    @include utils.box-shadow(global.$accent-2, $opposite: false);
+    grid-area: main;
+    background-color: rgba(global.$accent-2, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  h1{
+    font-weight: 800;
+    position: absolute;
+    top: 0;
+    font-size: global.$fs-xl;
+    font-size: global.$fs-xxl;
+    line-height: 80px;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    text-align: center;
+    color: global.$dark;
+  }
+
+  .icon{
+    height: 50%;
+    aspect-ratio: 1/1;
+    opacity: 0.3;
+
+    .frames{ fill: global.$dark; }
+    .lens{ fill: #403f3fc4; }
+    .reflect{ fill: #828181c4; }
+    .corner-circle{ fill: global.$highlight; }
+  }
+
+  .block[pos="left"]{
+    grid-area: main-side;
+    background-color: global.$dark;
+    height: 75%;
+    transform: translate(25%, 50%);
+    z-index: -1;
+  }
+
+}

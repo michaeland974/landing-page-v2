@@ -19,21 +19,27 @@
   font-family: Bungee;
   src: url('./../fonts/BungeeShade-Regular.ttf');
 }
+@font-face{
+  font-family: Podkova;
+  src: url('./../fonts/Podkova-Medium.ttf');
+}
 
+$fs-xxl: 100px;
 $fs-xl: clamp(1.75rem, 4vw, 2rem);
 $fs-600: clamp(1.5rem, 3vw, 1.75rem);
 $fs-500: clamp(1rem, 2.5vw, 1.5rem);
 $fs-400: clamp(1rem, 1.4vw, 1.5rem);
 
-$display-padding: 1rem;
+$display-padding: 0.5em;
 
 $background: #F2EBDC;
 $dark: #26221C;
 $accent-3: #2AF5FF;
-$accent-2: #FF934F;
-$accent-main: #4B89BF;
+// $accent-2: #FF934F;
+$accent-2: #c08497;
+$accent-main: #2c6e49;
 $highlight: #E23467;
-$accent-1: #C2E812;
+$accent-1: #4c956c;
 
 $kf-timing: 0.6s;
 $kf-slide-timing: 0.8s;

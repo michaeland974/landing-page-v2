@@ -3,12 +3,41 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
 }
 
 @mixin border-radius-one-side($left, $right, $px){
   border-#{$left}-radius: $px;
   border-#{$right}-radius: $px;
+}
+
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-count-mobile(){
+  grid-template-areas:
+    "......... .... head head head ...."
+    "......... .... .... .... .... ...."
+    "main-side main main main .... ...."
+    "main-side main main main .... ...."
+    "foot-side foot foot foot .... ....";
+  grid-template-rows: repeat(2, 0.25fr) repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr) repeat(2, 0.5fr);
+}
+
+@mixin box-shadow($color, $opposite: false){
+  @if $opposite{
+    -webkit-box-shadow: -10px -10px 0px 0px rgba($color, 0.5);
+    -moz-box-shadow: -10px -10px 0px 0px rgba($color, 0.5);
+    box-shadow: -10px -10px 0px 0px rgba($color, 0.5);
+  } 
+  @else{
+    -webkit-box-shadow: 10px 10px 0px 0px rgba($color, 0.5);
+    -moz-box-shadow: 10px 10px 0px 0px rgba($color, 0.5);
+    box-shadow: 10px 10px 0px 0px rgba($color, 0.5);
+  }
 }
 
 
