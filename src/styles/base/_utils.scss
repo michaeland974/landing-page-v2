@@ -18,11 +18,11 @@
 
 @mixin grid-count-mobile(){
   grid-template-areas:
-    "......... .... head head head ...."
-    "......... .... .... .... .... ...."
-    "main-side main main main .... ...."
-    "main-side main main main .... ...."
-    "foot-side foot foot foot .... ....";
+    "......... .... head head head ..........."
+    "......... .... .... .... .... ..........."
+    "main-side main main main .... block-right"
+    "main-side main main main .... block-right"
+    "foot-side foot-side .... foot .... ......";
   grid-template-rows: repeat(2, 0.25fr) repeat(3, 1fr);
   grid-template-columns: repeat(4, 1fr) repeat(2, 0.5fr);
 }

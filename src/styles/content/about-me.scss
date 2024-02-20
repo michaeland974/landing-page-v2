@@ -26,7 +26,7 @@
   h1{
     font-weight: 800;
     position: absolute;
-    top: 0;
+    top: 15%;
     font-size: global.$fs-xl;
     font-size: global.$fs-xxl;
     line-height: 80px;
@@ -37,9 +37,10 @@
   }
 
   .icon{
-    height: 50%;
+    height: 25%;
     aspect-ratio: 1/1;
-    opacity: 0.3;
+    align-self: end;
+    opacity: 0;
 
     .frames{ fill: global.$dark; }
     .lens{ fill: #403f3fc4; }
@@ -48,11 +49,25 @@
   }
 
   .block[pos="left"]{
+    @include utils.box-shadow(global.$accent-1, $opposite: true);
     grid-area: main-side;
-    background-color: global.$dark;
+    background-color: global.$accent-1;
     height: 75%;
     transform: translate(25%, 50%);
     z-index: -1;
   }
 
+  .block[pos="right"]{
+    grid-area: block-right;
+    background-color: global.$dark;
+    height: 50%;
+    transform: translate(25%, 50%);
+  }
+
+  .block[pos="foot-side"]{
+    grid-area: foot-side;
+    background-color: global.$dark;
+    height: 15%;
+    transform: translateY(200%);
+  }
 }
