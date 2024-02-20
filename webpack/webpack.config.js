@@ -27,10 +27,10 @@ module.exports = {
     module: {
         rules: [
          {
-            test: /\.js$/,
+            test: /\.ts?$/,
+            loader: "ts-loader",
             exclude: /node_modules/,
-            use: [],
-         }, 
+         },
          {
             test: /\.scss$/,
             exclude: /node_modules/,
