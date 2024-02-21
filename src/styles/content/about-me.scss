@@ -13,7 +13,8 @@
 
 @keyframes Slide-In-From-Right{
   100%{
-    transform: translate(0%, 25%);
+    --text-opacity: 1;
+    transform: translate(-10%, 0%);
   }
 }
 
@@ -81,13 +82,25 @@
     }
 
   .block[pos="right"]#bio{
-    height: 75%;
+    --text-opacity: 0;
+
     grid-area: main;
+    height: 100%;
+    width: 125%;
+    font-size: global.$fs-xl;
+    line-height: global.$line-height-500;
     background-color: global.$dark;
-    color: global.$background;
-    transform: translate(125%, 25%);
+    color: rgba(global.$background, var(--text-opacity));
+    padding: global.$display-padding;
+  
+    transform: translate(100%, 0%);
     animation: Slide-In-From-Right 0.5s global.$kf-cubic forwards;
     animation-delay: map.get(global.$delays, "about-me-section");
+
+    span{
+      font-weight: 800;
+      color: rgba(global.$highlight, var(--text-opacity));
+    }
   }
 
   *[will-transition="true"]{
