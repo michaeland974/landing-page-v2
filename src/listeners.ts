@@ -6,12 +6,3 @@ const fade = {
 };
 
 const aboutMeBio: Element | null = document.querySelector("#bio");
-
-aboutMeBio?.addEventListener("click", function(this: Element | null){
-  const targets = fade.getTargets();
-  targets.forEach((el) => {
-    el.setAttribute("fade-status", "true");
-  });
-
-  this?.setAttribute("translate-status", "true");
-});

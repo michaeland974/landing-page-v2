@@ -16,16 +16,8 @@
     <main>
 
       <header>
-        <h2>Web Developer</h2>
-      </header>
-
-      <section class="content-block" id="about-me">
-        <div id="author">Michael Anderson</div>
-        <div id="cover" 
-             will-transition="true"
-             fade-status="false">
-          <h1>About me</h1>
-          <svg class="icon" viewBox="0 0 220 220"
+        <!-- <h2>Web Developer</h2>
+        <svg class="icon" viewBox="0 0 220 220"
                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" xml:space="preserve">
             <g class="left">
               <path class="reflect top" d="M41.057,78.584l-25.549,25.55c0.247,3.003,0.76,6.303,1.632,9.602l35.377-35.379   C48.568,78.271,44.656,78.347,41.057,78.584z"/>
@@ -46,24 +38,38 @@
               <path class="lens middle" d="M171.18,78.427l-40.643,40.645c0.641,1.333,1.347,2.622,2.114,3.854l44.133-44.132   C175.007,78.629,173.127,78.506,171.18,78.427z"/>
               <path class="lens bottom" d="M199.652,96.321c-0.762-6.574-5.012-12.789-12.314-15.519   c-0.313-0.117-0.645-0.229-0.994-0.338l-48.64,48.637c8.653,7.757,21.109,9.21,24.261,9.458c0.333-0.105,0.602-0.08,0.804,0.049   h7.44c0,0,5.117-0.553,10.172-2.674c3.91-1.641,7.439-4.271,10.703-8.031C198.75,119.08,200.49,103.651,199.652,96.321z"/>
             </g>
-          </svg>
+          </svg> -->
+      </header>
+
+      <section class="content-block" id="about-me">
+        <div id="author"
+             data-text="Web Developer">
+          Web Developer
+        </div>
+        <div id="cover" 
+             will-transition="true"
+             transition-type="opacity">
+         <h1 data-text="About me">
+            About me
+         </h1>
         </div>
         <div class="block" 
              pos="left" 
              will-transition="true" 
-             fade-status="false"></div>
-        <p class="block" 
-           pos="right" 
-           id="bio"
-           will-transition="true"
-           translate-status="false">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-             Ipsum nunc aliquet bibendum enim facilisis gravida neque convallis. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit duis.
-        </p>
+             transition-type="opacity">
+        </div>
+        <div class="block" 
+             pos="right" 
+             id="bio"
+             will-transition="true"
+             transition-type="slide">
+           I'm a developer & <span>CSS enthusiast</span> with a focus on creating exciting & high quality websites.
+        </div>
         <div class="block" 
              pos="foot-side" 
              will-transition="true"
-             fade-status="false"></div>
+             transition-type="opacity">
+        </div>
       </section>
 
       <section class="content-block" id="projects">
@@ -78,7 +84,7 @@
 
     </main>
 
-    <!-- <section class="overlay" 
+    <section class="overlay" 
             id="on-load-overlay" 
             aria-hidden="true">
       <div class="cluster" pos="left" color-swapped >
@@ -97,7 +103,7 @@
         <div class="rect child"></div>
       </div>
       <div id="half-background"></div>
-    </section> -->
+    </section>
 
   </body>
 </html>
