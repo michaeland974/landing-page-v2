@@ -1,30 +1,13 @@
-@font-face {  font-family: Bold-Text;
-  src: url('./../fonts/IBMPlexMono-Bold.ttf'); }
-@font-face {  font-family: Thin-Text;
-  src: url('./../fonts/IBMPlexMono-Thin.ttf'); }
-@font-face {  font-family: ThinItalic-Text;
-  src: url('./../fonts/IBMPlexMono-ThinItalic.ttf'); }
-@font-face {  font-family: Regular-Text;
-  src: url('./../fonts/IBMPlexMono-Regular.ttf'); 
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {  
-  font-family: Serif-Text;
-  src: url('./../fonts/Trocchi-Regular.ttf');
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {  
-  font-family: Bungee;
-  src: url('./../fonts/BungeeShade-Regular.ttf');
+@font-face{
+  font-family: Heading-Text;
+  src: url('./../fonts/Modak-Regular.ttf');
 }
 @font-face{
-  font-family: Podkova;
-  src: url('./../fonts/Podkova-Medium.ttf');
+  font-family: Body-Text;
+  src: url('./../fonts/Numans-Regular.ttf');
 }
 
-$fs-xxl: 100px;
+$fs-xxl: 75px;
 $fs-xl: clamp(1.75rem, 4vw, 2rem);
 $fs-600: clamp(1.5rem, 3vw, 1.75rem);
 $fs-500: clamp(1.25rem, 2.5vw, 1.5rem);
@@ -50,7 +33,7 @@ $delays: (
   "second": 0.7s, 
   "third": 1s,
   "last": 1.2s,
-  "about-me-section": 2.3s
+  "about-me-section": 2.5s
 );
 
 $grid-count: repeat(8, 1fr);
