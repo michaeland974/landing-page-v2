@@ -18,16 +18,33 @@
   }
 }
 
+@keyframes Slide-In-Box-Shadow{
+  100%{
+    box-shadow: inset -400px 0 0 0 global.$background;
+  }
+}
+
 #about-me{
-  font-family: Podkova;
+  font-family: Body-Text;
 
   #author{
-    grid-area: head;
-    transform: translateY(75%);
-    background-color: global.$dark;
-    color: global.$background;
     @include utils.flex-center;
-    @include utils.box-shadow(global.$dark, $opposite: true);
+    box-shadow: inset 0 0 0 0 global.$background;
+    grid-area: head;
+    font-family: Heading-Text;
+    font-size: global.$fs-500;
+    background-color: global.$dark;
+    color: global.$dark;
+    transform: translateY(75%);
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: rgba(global.$background, 0.5);
+    text-transform: uppercase;
+    position: relative;
+    transition: ease-out 0.4s;
+    border: 2px solid global.$dark;
+
+    animation: Slide-In-Box-Shadow 0.5s global.$kf-cubic forwards;
+    animation-delay: map.get(global.$delays, "about-me-section");
   }
 
   #cover{
@@ -41,34 +58,21 @@
   }
   
   h1{
-    font-weight: 800;
+    font-family: Heading-Text;
     position: absolute;
-    top: 15%;
-    font-size: global.$fs-xl;
+    top: 25%;
     font-size: global.$fs-xxl;
-    line-height: 80px;
-    text-transform: uppercase;
-    overflow-wrap: break-word;
-    text-align: center;
+    line-height: 75px;
     color: global.$dark;
-  }
-
-  .icon{
-    height: 25%;
-    aspect-ratio: 1/1;
-    align-self: end;
-    opacity: 0;
-
-    .frames{ fill: global.$dark; }
-    .lens{ fill: #403f3fc4; }
-    .reflect{ fill: #828181c4; }
-    .corner-circle{ fill: global.$highlight; }
+    
+    text-align: center;
+    text-transform: uppercase;
   }
 
   .block[pos="left"]{
     @include utils.box-shadow(global.$accent-1, $opposite: true);
     grid-area: main-side;
-    background-color: global.$accent-1;
+    background-color: rgba(global.$accent-1, 0.6);
     height: 75%;
     transform: translate(25%, 50%);
     z-index: -1;
@@ -83,7 +87,6 @@
 
   .block[pos="right"]#bio{
     --text-opacity: 0;
-
     grid-area: main;
     height: 100%;
     width: 125%;
@@ -101,6 +104,11 @@
       font-weight: 800;
       color: rgba(global.$highlight, var(--text-opacity));
     }
+
+    @media only screen and (min-height: 750px) {
+      height: 80%;
+    } 
+
   }
 
   *[will-transition="true"]{

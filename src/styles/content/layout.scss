@@ -15,7 +15,6 @@ $child-size: 100svh;
 
 main{
   $margin: 0.25em;
-  font-family: Serif-Text;
   width: 100%;
   color: global.$dark;
   animation: Slide-In 
@@ -35,14 +34,23 @@ main{
   header{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-top: 0.5em solid global.$dark;
     padding: $margin global.$display-padding global.$display-padding global.$display-padding;
+    
+    .icon{
+      height: 75px;
+      aspect-ratio: 1/1;
+      opacity: 0.8;
+  
+      .frames{ fill: global.$dark; }
+      .lens{ fill: #403f3fc4; }
+      .reflect{ fill: #828181c4; }
+      .corner-circle{ fill: global.$highlight; }
+    }
   }
 
   h2{
-    font-family: Bungee;
     -webkit-text-stroke-width: 1px;
     font-size: global.$fs-600;
     color: global.$dark;
