@@ -1,5 +1,6 @@
 @use './../base/global';
 @use './../base/utils';
+@use './../base/media';
 @use 'sass:map';
 
 @keyframes Opacity-Fade-Out{
@@ -7,7 +8,7 @@
     opacity: 1;
   }
   100%{
-    opacity: 0.15; 
+    opacity: 0.1; 
   }
 }
 
@@ -90,10 +91,11 @@
     grid-area: main;
     height: 100%;
     width: 125%;
+    font-weight: 800;
     font-size: global.$fs-xl;
-    line-height: global.$line-height-500;
-    background-color: global.$dark;
-    color: rgba(global.$background, var(--text-opacity));
+    // line-height: global.$line-height-500;
+    // background-color: global.$dark;
+    color: rgba(global.$dark, var(--text-opacity));
     padding: global.$display-padding;
   
     transform: translate(100%, 0%);
@@ -101,14 +103,14 @@
     animation-delay: map.get(global.$delays, "about-me-section");
 
     span{
+      font-family: Heading-Text;
       font-weight: 800;
-      color: rgba(global.$highlight, var(--text-opacity));
+      // color: rgba(global.$highlight, var(--text-opacity));
     }
 
-    @media only screen and (min-height: 750px) {
+    @media only screen and (min-height: media.$mobile-height) {
       height: 80%;
     } 
-
   }
 
   *[will-transition="true"]{

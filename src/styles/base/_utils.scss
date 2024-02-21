@@ -16,17 +16,6 @@
   align-items: center;
 }
 
-@mixin grid-count-mobile(){
-  grid-template-areas:
-    "......... .... head head head ..........."
-    "......... .... .... .... .... ..........."
-    "main-side main main main .... block-right"
-    "main-side main main main .... block-right"
-    "foot-side foot-side .... foot .... ......";
-  grid-template-rows: repeat(2, 0.25fr) repeat(3, 1fr);
-  grid-template-columns: repeat(4, 1fr) repeat(2, 0.5fr);
-}
-
 @mixin box-shadow($color, $opposite: false){
   @if $opposite{
     -webkit-box-shadow: -10px -10px 0px 0px rgba($color, 0.5);
@@ -47,4 +36,25 @@
   background: linear-gradient(90deg, $left-color 6%, $right-color 60%);
 }
 
+@mixin grid-count-mobile{
+  grid-template-areas:
+    "......... .... head head head ..........."
+    "......... .... .... .... .... ..........."
+    "main-side main main main .... block-right"
+    "main-side main main main .... block-right"
+    "foot-side foot-side .... foot .... ......";
+  grid-template-rows: repeat(2, 0.25fr) repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr) repeat(2, 0.5fr);
+}
+
+@mixin grid-count-tablet{
+  grid-template-areas:
+    "......... .... head head head ..........."
+    "......... .... .... .... .... ..........."
+    "main-side main main .... .... block-right"
+    "main-side main main .... .... block-right"
+    "foot-side foot-side .... foot .... ......";
+  grid-template-rows: repeat(2, 0.25fr) repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr) repeat(2, 0.5fr);
+}
 

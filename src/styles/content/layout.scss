@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use './../base/global';
 @use './../base/utils';
+@use './../base/media';
 
 @keyframes Slide-In{
   0%{
@@ -29,6 +30,10 @@ main{
     height: $child-size;
     display: grid;
     @include utils.grid-count-mobile;
+
+    // @media only screen and (min-width: media.$tablet-width) {
+    //   @include utils.grid-count-tablet;
+    // } 
   }
 
   header{

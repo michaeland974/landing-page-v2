@@ -8,9 +8,11 @@
 }
 
 $fs-xxl: 110px;
-$fs-xl: clamp(1.75rem, 4vw, 2rem);
-$fs-600: clamp(1.5rem, 3vw, 1.75rem);
+$fs-xl: clamp(1.75rem, 4vw, 3.5rem);
 $fs-500: clamp(1.25rem, 2.5vw, 1.5rem);
+
+
+$fs-600: clamp(1.5rem, 3vw, 1.75rem);
 $fs-400: clamp(1rem, 1.4vw, 1.5rem);
 $line-height-500: 35px;
 
